@@ -92,7 +92,12 @@ const Story = (props: StoryProps) => {
 					? "video"
 					: "image";
 			return type === "image" ? (
-				<img style={storyContentStyles} src={source} onLoad={imageLoaded} />
+				<img style={{
+					...storyContentStyles,
+					width: '100%',
+					height: '100%',
+					objectFit: 'cover'
+				}} src={source} onLoad={imageLoaded} />
 			) : type === "video" ? (
 				<video
 					ref={vid}
@@ -126,7 +131,7 @@ const Story = (props: StoryProps) => {
 					) : null}
 				</div>
 			)}
-			{!loaded && (
+			{!loaded && false && (
 				<div
 					style={{
 						width: width,
